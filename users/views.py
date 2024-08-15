@@ -12,7 +12,7 @@ from .serializers import UserSerializer
 
 
 
-class PingView(view):
+class PingView(View):
 
     def get(self, request):
         return HttpResponse("App is active")
