@@ -3,10 +3,19 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
+from django.http import HttpResponse    # for cron job only
+from django.views import View           # for cron job only
+
 
 from .models import User
 from .serializers import UserSerializer
 
+
+
+class PingView(view):
+    # for cron job only
+    def get(self, request):
+        return HttpResponse("App is active")
 
 
 class RegisterView(APIView):
